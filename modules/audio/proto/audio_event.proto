@@ -1,0 +1,15 @@
+syntax = "proto2";
+
+package apollo.common;
+
+import "modules/audio/proto/audio_common.proto";
+import "modules/common/proto/header.proto";
+
+message AudioEvent {
+  optional apollo.common.Header header = 1;
+  optional int32 id = 2;  // obstacle ID.
+  optional apollo.audio.MovingResult moving_result = 3 [default = UNKNOWN];
+  optional apollo.audio.AudioType audio_type = 4 [default = UNKNOWN_TYPE];
+  optional bool siren_is_on = 5;
+  optional apollo.audio.AudioDirection audio_direction = 6 [default = UNKNOWN_DIRECTION];
+}
